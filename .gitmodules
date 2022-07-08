@@ -1,6 +1,6 @@
 [submodule "algorithms/tsalgo"]
 	path = algorithms/tsalgo
-	url = ./algorithms/ts-algo
+	url = https://github.com/meeklowebb/lp/tree/master/algorithms/ts-algo
 [submodule "node/uWebSockets"]
 	path = node/uWebSockets
-	url = ./node/uWebSockets/
+	url = https://github.com/meeklowebb/lp/tree/master/node/uWebSockets

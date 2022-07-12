@@ -1,6 +1,6 @@
 [submodule "algorithms/ts-algo"]
 	path = algorithms/ts-algo
-	url = ./algorithms/ts-algo
+	url = algorithms/ts-algo
 [submodule "node/uWebSockets"]
 	path = node/uWebSockets
 	url = node/uWebSockets

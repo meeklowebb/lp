@@ -30,10 +30,20 @@ export default class Grid {
 
     render() {
         console.log('Grid Started'); 
+        this.args.isFrameOn && this.drawFrame();
     }
 
     drawFrame() {
-
+        let { ctx, canvasW, canvasH } = this.args;
+        ctx.beginPath();
+        ctx.lineWidth = 10;
+        ctx.moveTo(0, 0);
+        ctx.lineTo(canvasW, 0);
+        ctx.lineTo(canvasW, canvasH);
+        ctx.lineTo(0, canvasH);
+        ctx.lineTo(0, 0);
+        ctx.stroke();
+        ctx.closePath();
     }
 
 }

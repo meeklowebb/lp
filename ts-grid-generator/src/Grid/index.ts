@@ -37,16 +37,45 @@ export default class Grid {
     }
 
     drawGrid() {
-        let { ctx, canvasW, canvasH } = this.args;
-        ctx.beginPath();
-        
-        ctx.closePath();
+        const { ctx, gridH, centerY, centerX, celW, celH, canvasH, canvasW } = this.args;
+
+        const visibleRows = Math.floor(canvasH / celH);
+        const visibleCols = Math.floor(canvasW / celW);
+
+        for(let i=1; i < visibleCols / 2; i++) {
+            ctx.beginPath();
+            ctx.moveTo(centerX + i * celW, 0);
+            ctx.lineTo(centerX + i * celW, gridH);
+            ctx.stroke();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.moveTo(centerX - i * celW, 0);
+            ctx.lineTo(centerX - i * celW, gridH);
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+
+        for(let i=1; i < visibleRows / 2; i++) {
+            ctx.beginPath();
+            ctx.moveTo(0, centerY + i * celH);
+            ctx.lineTo(canvasW, centerY + i * celH);
+            ctx.stroke();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.moveTo(0, centerY - i * celH);
+            ctx.lineTo(canvasW, centerY - i * celH);
+            ctx.stroke();
+            ctx.closePath();
+        }
     }
 
     drawFrame() {
         let { ctx, canvasW, canvasH } = this.args;
         ctx.beginPath();
-        ctx.lineWidth = 20;
+        ctx.lineWidth = 400;
         ctx.moveTo(0, 0);
         ctx.lineTo(canvasW, 0);
         ctx.lineTo(canvasW, canvasH);
@@ -63,12 +92,9 @@ export default class Grid {
         ctx.lineTo(canvasW, centerY);
         ctx.moveTo(centerX, 0);
         ctx.lineTo(centerX, canvasH);
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2;
+        ctx.setLineDash([2, 3, 6]);
         ctx.stroke();
         ctx.closePath();
-    }
-
-    drawGrid() {
-
     }
 }

@@ -20,6 +20,7 @@ const defaultArgs: GridCfg = {
     isDynamicGridHW: true,
     isFrameOn: true,
     isLinesOn: true,
+    isGridOn: true,
     numberOfCel: 100,
     numberOfRow: 100,
     canvas, ctx,
